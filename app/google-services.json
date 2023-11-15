@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092962335436",
+    "project_id": "receiptshare-677c5",
+    "storage_bucket": "receiptshare-677c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092962335436:android:debc8e996eb09d3b5d2069",
+        "android_client_info": {
+          "package_name": "com.example.receiptshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBDSy1t6dBy3xn7_lsVb3bkf93HgQ3-Mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

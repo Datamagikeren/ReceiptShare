@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.receiptshare.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_groupFragment"
+            app:destination="@id/groupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.receiptshare.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.receiptshare.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.example.receiptshare.ui.group.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group" >
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_groupFragment_to_groupInfo"
+            app:destination="@id/groupInfo" />
+        <action
+            android:id="@+id/action_groupFragment_to_addReceiptToGroupFragment"
+            app:destination="@id/addReceiptToGroupFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_imagePickerFragment"
+            app:destination="@id/imagePickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupInfo"
+        android:name="com.example.receiptshare.ui.groupInfo.GroupInfoFragment"
+        android:label="fragment_group_info"
+        tools:layout="@layout/fragment_group_info" >
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_groupInfo_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_groupInfo_to_addUserToGroupBottomSheetFragment"
+            app:destination="@id/addUserToGroupBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addUserToGroupBottomSheetFragment"
+        android:name="com.example.receiptshare.ui.groupInfo.AddUserToGroupBottomSheetFragment"
+        android:label="AddUserToGroupBottomSheetFragment" >
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_addUserToGroupBottomSheetFragment_to_groupInfo"
+            app:destination="@id/groupInfo" />
+    </dialog>
+    <dialog
+        android:id="@+id/addReceiptToGroupFragment"
+        android:name="com.example.receiptshare.ui.group.AddReceiptToGroupFragment"
+        android:label="fragment_add_receipt_to_group"
+        tools:layout="@layout/fragment_add_receipt_to_group" />
+    <fragment
+        android:id="@+id/receiptFragment"
+        android:name="com.example.receiptshare.ui.receipt.ReceiptFragment"
+        android:label="fragment_receipt"
+        tools:layout="@layout/fragment_receipt" >
+        <argument
+            android:name="receiptId"
+            app:argType="string" />
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_receiptFragment_to_itemInfoFragment"
+            app:destination="@id/itemInfoFragment" />
+        <action
+            android:id="@+id/action_receiptFragment_to_receiptInfoFragment"
+            app:destination="@id/receiptInfoFragment" />
+        <argument
+            android:name="receiptName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_receiptFragment_to_receiptScannerFragment"
+            app:destination="@id/receiptScannerFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/itemInfoFragment"
+        android:name="com.example.receiptshare.ui.receipt.ItemInfoFragment"
+        android:label="fragment_item_info"
+        tools:layout="@layout/fragment_item_info" >
+        <argument
+            android:name="itemId"
+            app:argType="string" />
+        <argument
+            android:name="receiptId"
+            app:argType="string" />
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/receiptInfoFragment"
+        android:name="com.example.receiptshare.ui.receipt.ReceiptInfoFragment"
+        android:label="fragment_receipt_info"
+        tools:layout="@layout/fragment_receipt_info" >
+        <argument
+            android:name="receiptId"
+            app:argType="string" />
+        <argument
+            android:name="receiptName"
+            app:argType="string" />
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePickerFragment"
+        android:name="com.example.receiptshare.ui.group.ImagePickerFragment"
+        android:label="fragment_image_picker"
+        tools:layout="@layout/fragment_image_picker">
+    </fragment>
+    <fragment
+        android:id="@+id/receiptScannerFragment"
+        android:name="ReceiptScannerFragment"
+        android:label="ReceiptScannerFragment" >
+        <argument
+            android:name="receiptId"
+            app:argType="string" />
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+    </fragment>
+</navigation>
